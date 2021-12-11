@@ -22,14 +22,14 @@ function setup() {
 	video.hide();
 
 	poseNet = ml5.poseNet(video, modelLoaded);
-	poseNet.on('pose', gotPoses);
+	poseNet.on('pose', getPoses);
 }
 
 function modelLoaded() {
   console.log('PoseNet Is Initialized');
 }
 
-function gotPoses(results)
+function getPoses(results)
 {
   if(results.length > 0)
   {
@@ -103,4 +103,7 @@ function play()
 	song.play();
 	song.setVolume(1);
 	song.rate(1);
+}
+function Stop(){
+	song.stop();
 }
